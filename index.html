@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
-    <h1>Memory Game</h1>
+    <div class="container" id="game-content">
+        <h1 id="title" class="text-info">Memory game</h1>
+        <div class="row">
+          <div class="col-sm text-info" id="play-time">
+            Playtime: 0 s
+          </div>
+          <div class="col-sm text-info text-right" id="turn-count">
+            Turns: 0
+          </div>
+        </div>
+        <div class="row" id="progress"> <!-- edistymispaneeli -->
+          <div class="col-sm text-success">
+            <div class="progress">
+              <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <table id="scoreSection">
+    
+      </table>
+    
+        <!-- Optional JavaScript -->
+        <script src="src/icons.js"></script>
+        <script src="src/app.js"></script>
+    
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+          $("body").css("font-family", "Lucida Console");
+        </script>
 </body>
 </html>
