@@ -193,9 +193,9 @@ var MemoryGame = function(size, cardsPerRow) {
         var name = document.getElementById("username").value;
         place.innerHTML = y;
         if (name == null) {
-            nickName.innerHTML = "Anonymous";
+            nickName.innerHTML = "Anonymous"; console.log("Anonymus");
         } else  {
-            nickName.innerHTML = name;
+            nickName.innerHTML = name; console.log(name);
         }
         nickName.innerHTML = name;
         time.innerHTML = this.playTime/1000;
