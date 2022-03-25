@@ -195,12 +195,11 @@ var MemoryGame = function(size, cardsPerRow) {
         time.innerHTML = this.playTime/1000;
         turns.innerHTML = this.turn;
 
-        this.username = function() {
-            var name = document.getElementById("username");
-            return name;
-        }
-
         x++;y++;
+    }
+    this.username = function() {
+        var name = document.getElementById("username");
+        return name;
     }
 
     this.createDivs = function() { // luodaan divit korteille 
