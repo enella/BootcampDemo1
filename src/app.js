@@ -271,7 +271,7 @@ var MemoryGame = function(size, cardsPerRow) {
  /* PELILOGIIKKA ----------------------------------------------------------------------------------------------- */
     this.turnCard = function(id) { // pelilogiikan luominen
         // console.log("turnCard: " + id);
-        var pisteet;
+        var winElement;
 
         if(this.startTime == -1){ // aloitusajan alustaminen
             this.startTime = new Date().getTime();
@@ -311,7 +311,7 @@ var MemoryGame = function(size, cardsPerRow) {
             if (this.progress == 100) { // kun kaikki parit on käytetty tai siis progress-bar on 100%:a
                 this.state = CONST.GAME_STATE_WIN;
                 if (this.state == CONST.GAME_STATE_WIN) {
-                    createHighScore; console.log("WIN!");
+                    winElement = this.createHighScore(); console.log("WIN!");
                 }
             }
         }
