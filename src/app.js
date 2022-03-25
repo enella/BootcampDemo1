@@ -266,6 +266,7 @@ var MemoryGame = function(size, cardsPerRow) {
             va = this.progress - 100;
             v = this.progress - va; 
             $('#progress-bar').attr('aria-valuenow', '100%');
+            $('#progress-bar').css('width', v + '%');
         }
     }
  /* PELILOGIIKKA ----------------------------------------------------------------------------------------------- */
