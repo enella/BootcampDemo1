@@ -190,7 +190,7 @@ var MemoryGame = function(size, cardsPerRow) {
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
         
-        var name = document.getElementById("username");
+        var name = document.getElementById("username").value;
         place.innerHTML = y;
         nickName.innerHTML = name;
         time.innerHTML = this.playTime/1000;
