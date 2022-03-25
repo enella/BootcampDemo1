@@ -1,8 +1,8 @@
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // vähän niinkuin asetukset
-    BOARD_SIZE: 24,
-    CARDS_PER_ROW: 8,
+    BOARD_SIZE: 8,
+    CARDS_PER_ROW: 4,
 
     CARD_INVISIBLE: "oi oi-aperture text-info",
     CARD_PAIR_FOUND: "oi oi-check text-success",
@@ -192,7 +192,7 @@ var MemoryGame = function(size, cardsPerRow) {
         score.setAttribute("id", "player-score");*/
         
         place.innerHTML = x;
-        nickName.innerHTML = Anonymus;
+        nickName.innerHTML = "Anonymus";
         time.innerHTML = this.endTime;
         turns.innerHTML = this.turn;
 
@@ -311,7 +311,7 @@ var MemoryGame = function(size, cardsPerRow) {
             if (this.progress == 100) { // kun kaikki parit on käytetty tai siis progress-bar on 100%:a
                 this.state = CONST.GAME_STATE_WIN;
                 if (this.state == CONST.GAME_STATE_WIN) {
-                    createHighScore; 
+                    createHighScore; console.log("WIN!");
                 }
             }
         }
