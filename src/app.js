@@ -180,7 +180,7 @@ var MemoryGame = function(size, cardsPerRow) {
         return iconSpan;
     }
     this.createHighScore = function() { // luodaan highscore-osio
-        var x = 1
+        var x = 1;
         var scoreB = document.getElementById("scoreBody"); // haetaan table:n sisältö
         var row = scoreB.insertRow(x);
         var place = row.insertCell(0);
