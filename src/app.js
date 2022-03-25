@@ -188,10 +188,10 @@ var MemoryGame = function(size, cardsPerRow) {
         var time = row.insertCell(2);
         var turns = row.insertCell(3);
 
-        /*score = document.createElement("div");
-        score.setAttribute("id", "player-score");*/
+        //score.HTMLTableElement.appendChild(document.createElement('tbody'));
+        //score.setAttribute("id", "player-score" + x);
         
-        place.innerHTML = x;
+        document.getElementById("player-score" + x) = place.innerHTML = x;
         nickName.innerHTML = "Anonymus";
         time.innerHTML = this.endTime;
         turns.innerHTML = this.turn;
