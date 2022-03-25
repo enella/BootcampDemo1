@@ -196,6 +196,29 @@ var MemoryGame = function(size, cardsPerRow) {
         turns.innerHTML = this.turn;
 
         x++;y++;
+
+        this.userName = function() {
+            var input = document.createElement('input');
+            input.type = "text";
+            input.id = "username";
+
+            await waitingKeypress();
+
+            var name  = document.getElementById("username");
+            nickName.innerHTML = name;
+
+            function waitingKeypress() {
+                return new Promise((resolve) => {
+                  document.addEventListener('keydown', onKeyHandler);
+                  function onKeyHandler(e) {
+                    if (e.keyCode === 13) {
+                      document.removeEventListener('keydown', onKeyHandler);
+                      resolve();
+                    }
+                  }
+                });
+            }
+        }
     }
 
     this.createDivs = function() { // luodaan divit korteille 
