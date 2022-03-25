@@ -191,7 +191,7 @@ var MemoryGame = function(size, cardsPerRow) {
         //score.setAttribute("id", "player-score" + x);
         
         place.innerHTML = y;
-        nickName.innerHTML = "Anonymous";
+        nickName.innerHTML = this.userName();
         time.innerHTML = this.playTime/1000;
         turns.innerHTML = this.turn;
 
@@ -205,9 +205,9 @@ var MemoryGame = function(size, cardsPerRow) {
             await waitingKeypress();
 
             var name  = document.getElementById("username");
-            nickName.innerHTML = name;
+            this.nickName.innerHTML = name;
 
-            function waitingKeypress() {
+            this.waitingKeypress = function() {
                 return new Promise((resolve) => {
                   document.addEventListener('keydown', onKeyHandler);
                   function onKeyHandler(e) {
@@ -219,6 +219,7 @@ var MemoryGame = function(size, cardsPerRow) {
                 });
             }
         }
+        
     }
 
     this.createDivs = function() { // luodaan divit korteille 
