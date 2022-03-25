@@ -180,7 +180,7 @@ var MemoryGame = function(size, cardsPerRow) {
         return iconSpan;
     }
     this.createHighScore = function() { // luodaan highscore-osio
-        var x = 1;
+        var x = 0, y = 1;
         var scoreB = document.getElementById("scoreBody"); // haetaan table:n sisältö
         var row = scoreB.insertRow(x);
         var place = row.insertCell(0);
@@ -191,12 +191,12 @@ var MemoryGame = function(size, cardsPerRow) {
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
         
-        place.innerHTML = x;
+        place.innerHTML = y;
         nickName.innerHTML = "Anonymus";
         time.innerHTML = this.endTime;
         turns.innerHTML = this.turn;
 
-        x++;
+        x++;y++;
     }
 
     this.createDivs = function() { // luodaan divit korteille 
