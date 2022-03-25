@@ -39,8 +39,6 @@ var MemoryCard = function(id, gameController) {
         } else if (that.cards == CONST.CARD_STATE_WIN) {
            // that.gameController.turnCard(id);
         }
-        
-        
     }
 
     this.turnVisible = function() { // käännetään näkyviin (tallenetaan iconClass:n tuos spanin sisään)
@@ -62,10 +60,10 @@ var MemoryCard = function(id, gameController) {
          document.getElementById("span-" + id).className = CONST.CARD_PAIR_FOUND + " animated flipInX";
          this.setCardState(CONST.CARD_STATE_GAME_OVER);
     }
-    /*this.turnWin = function() { // Kun kaikki parit on käytetty
+    this.turnWin = function() { // Kun kaikki parit on käytetty
         var id = this.id.substr(5);
-
-    }*/
+        
+    }
 
     this.getIconClass = function() {
        return this.iconClass;
@@ -182,18 +180,23 @@ var MemoryGame = function(size, cardsPerRow) {
         return iconSpan;
     }
     this.createHighScore = function() { // luodaan highscore-osio
-       // var x = 0, y = 0;
+        var x = 1
         var score = document.getElementById("scoreSection"); // haetaan table:n sisältö
-        var row = score.insertRow(0);
-        var place = score.insertCell(0);
-        var nickName = score.insertCell(1);
-        var time = score.insertCell(2);
-        var turns = score.insertCell(3);
+        var row = score.insertRow(x);
+        var place = row.insertCell(0);
+        var nickName = row.insertCell(1);
+        var time = row.insertCell(2);
+        var turns = row.insertCell(3);
 
+        /*score = document.createElement("div");
+        score.setAttribute("id", "player-score");*/
         
+        place.innerHTML = x;
+        nickName.innerHTML = Anonymus;
+        time.innerHTML = this.endTime;
+        turns.innerHTML = this.turn;
 
-        score = document.createElement("div");
-        score.setAttribute("id", "player-score");
+        x++;
     }
 
     this.createDivs = function() { // luodaan divit korteille 
@@ -306,9 +309,9 @@ var MemoryGame = function(size, cardsPerRow) {
             }
 
             if (this.progress == 100) { // kun kaikki parit on käytetty tai siis progress-bar on 100%:a
-                that.state = CONST.GAME_STATE_WIN;
+                this.state = CONST.GAME_STATE_WIN;
                 if (this.state == CONST.GAME_STATE_WIN) {
-                    
+                    createHighScore; 
                 }
             }
         }
