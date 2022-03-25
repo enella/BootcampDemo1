@@ -190,14 +190,14 @@ var MemoryGame = function(size, cardsPerRow) {
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
         
-        var name = document.getElementById("username").value;
+        var name = document.getElementById("username").value; console.log(name);
         place.innerHTML = y;
         if (name == null) {
             nickName.innerHTML = "Anonymous"; console.log("Anonymus");
-        } else  {
+        } else {
             nickName.innerHTML = name; console.log(name);
         }
-        nickName.innerHTML = name;
+        //nickName.innerHTML = name;
         time.innerHTML = this.playTime/1000;
         turns.innerHTML = this.turn;
 
