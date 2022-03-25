@@ -62,7 +62,6 @@ var MemoryCard = function(id, gameController) {
     }
     this.turnWin = function() { // Kun kaikki parit on käytetty
         var id = this.id.substr(5);
-        
     }
 
     this.getIconClass = function() {
