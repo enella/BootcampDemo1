@@ -181,17 +181,17 @@ var MemoryGame = function(size, cardsPerRow) {
     }
     this.createHighScore = function() { // luodaan highscore-osio
         var x = 1
-        var score = document.getElementById("scoreSection"); // haetaan table:n sisältö
-        var row = score.insertRow(x);
+        var scoreB = document.getElementById("scoreBody"); // haetaan table:n sisältö
+        var row = scoreB.insertRow(x);
         var place = row.insertCell(0);
         var nickName = row.insertCell(1);
         var time = row.insertCell(2);
         var turns = row.insertCell(3);
-
+        
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
         
-        document.getElementById("player-score" + x) = place.innerHTML = x;
+        place.innerHTML = x;
         nickName.innerHTML = "Anonymus";
         time.innerHTML = this.endTime;
         turns.innerHTML = this.turn;
