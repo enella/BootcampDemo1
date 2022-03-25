@@ -202,7 +202,7 @@ var MemoryGame = function(size, cardsPerRow) {
             input.type = "text";
             input.id = "username";
 
-            await waitingKeypress();
+            this.waitingKeypress();
 
             var name  = document.getElementById("username");
             this.nickName.innerHTML = name;
