@@ -1,8 +1,8 @@
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // vähän niinkuin asetukset
-    BOARD_SIZE: 24,
-    CARDS_PER_ROW: 8,
+    BOARD_SIZE: 8,
+    CARDS_PER_ROW: 4,
 
     CARD_INVISIBLE: "oi oi-aperture text-info",
     CARD_PAIR_FOUND: "oi oi-check text-success",
@@ -39,8 +39,6 @@ var MemoryCard = function(id, gameController) {
         } else if (that.cards == CONST.CARD_STATE_WIN) {
            // that.gameController.turnCard(id);
         }
-        
-        
     }
 
     this.turnVisible = function() { // käännetään näkyviin (tallenetaan iconClass:n tuos spanin sisään)
@@ -62,11 +60,13 @@ var MemoryCard = function(id, gameController) {
          document.getElementById("span-" + id).className = CONST.CARD_PAIR_FOUND + " animated flipInX";
          this.setCardState(CONST.CARD_STATE_GAME_OVER);
     }
-    /*this.turnWin = function() { // Kun kaikki parit on käytetty
+    this.turnWin = function() { // Kun kaikki parit on käytetty
         var id = this.id.substr(5);
-
+    }
+    /*this.startOver = function() {
+        var shuffleB = document.getElementById("shuffleGame");
+        this.state = CONST.GAME_STATE_NO_TURNED_CARD;
     }*/
-
     this.getIconClass = function() {
        return this.iconClass;
     }
@@ -139,7 +139,7 @@ var MemoryGame = function(size, cardsPerRow) {
             y = this.getNextUninitializedIconClassIndex(y);
             this.cards[y].setIconClass(ICONNAMES[icon]);
 
-            console.log("Icon " + ICONNAMES[icon] + " set to " + x + " and " + y);
+            // console.log("Icon " + ICONNAMES[icon] + " set to " + x + " and " + y);
         }
     }
 
@@ -182,18 +182,29 @@ var MemoryGame = function(size, cardsPerRow) {
         return iconSpan;
     }
     this.createHighScore = function() { // luodaan highscore-osio
-       // var x = 0, y = 0;
-        var score = document.getElementById("scoreSection"); // haetaan table:n sisältö
-        var row = score.insertRow(0);
-        var place = score.insertCell(0);
-        var nickName = score.insertCell(1);
-        var time = score.insertCell(2);
-        var turns = score.insertCell(3);
-
+        var x = 0, y = 1;
+        var scoreB = document.getElementById("scoreBody"); // haetaan table:n sisältö
+        var row = scoreB.insertRow(x);
+        var place = row.insertCell(0);
+        var nickName = row.insertCell(1);
+        var time = row.insertCell(2);
+        var turns = row.insertCell(3);
         
+        //score.HTMLTableElement.appendChild(document.createElement('tbody'));
+        //score.setAttribute("id", "player-score" + x);
+        
+        var name = document.getElementById("username").value;
+        place.innerHTML = y;
+        if (name == "") {
+            nickName.innerHTML = "Anonymous"; 
+        } else {
+            nickName.innerHTML = name; 
+        }
+        //nickName.innerHTML = name;
+        time.innerHTML = this.playTime/1000;
+        turns.innerHTML = this.turn;
 
-        score = document.createElement("div");
-        score.setAttribute("id", "player-score");
+        x++;y++;
     }
 
     this.createDivs = function() { // luodaan divit korteille 
@@ -263,12 +274,13 @@ var MemoryGame = function(size, cardsPerRow) {
             va = this.progress - 100;
             v = this.progress - va; 
             $('#progress-bar').attr('aria-valuenow', '100%');
+            $('#progress-bar').css('width', v + '%');
         }
     }
  /* PELILOGIIKKA ----------------------------------------------------------------------------------------------- */
     this.turnCard = function(id) { // pelilogiikan luominen
         // console.log("turnCard: " + id);
-        var pisteet;
+        var winElement;
 
         if(this.startTime == -1){ // aloitusajan alustaminen
             this.startTime = new Date().getTime();
@@ -305,13 +317,17 @@ var MemoryGame = function(size, cardsPerRow) {
                 }, CONST.TURN_INVISIBLE_DELAY);
             }
 
+            if (document.getElementById("shuffleGame").clicked == true) {
+                this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
+            }
+
             if (this.progress == 100) { // kun kaikki parit on käytetty tai siis progress-bar on 100%:a
-                that.state = CONST.GAME_STATE_WIN;
+                this.state = CONST.GAME_STATE_WIN;
                 if (this.state == CONST.GAME_STATE_WIN) {
-                    
+                    winElement = this.createHighScore(); console.log("WIN!");
                 }
             }
-        }
+        } 
     }
 }
 
