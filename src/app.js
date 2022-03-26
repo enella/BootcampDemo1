@@ -323,9 +323,10 @@ var MemoryGame = function(size, cardsPerRow) {
                     winElement = this.createHighScore(); console.log("WIN!");
                 }
             }
-        } else if (document.getElementById("shuffleGame").clicked == true) {
-            this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
-        }
+        }/* else if (document.getElementById("shuffleGame").clicked == true) {
+            //this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
+            this.setCardState(CONST.GAME_STATE_NO_TURNED_CARD); console.log("Shuffle painettu"); 
+        }*/
     }
 }
 
