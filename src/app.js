@@ -63,7 +63,10 @@ var MemoryCard = function(id, gameController) {
     this.turnWin = function() { // Kun kaikki parit on käytetty
         var id = this.id.substr(5);
     }
-
+    /*this.startOver = function() {
+        var shuffleB = document.getElementById("shuffleGame");
+        this.state = CONST.GAME_STATE_NO_TURNED_CARD;
+    }*/
     this.getIconClass = function() {
        return this.iconClass;
     }
@@ -136,7 +139,7 @@ var MemoryGame = function(size, cardsPerRow) {
             y = this.getNextUninitializedIconClassIndex(y);
             this.cards[y].setIconClass(ICONNAMES[icon]);
 
-            console.log("Icon " + ICONNAMES[icon] + " set to " + x + " and " + y);
+            // console.log("Icon " + ICONNAMES[icon] + " set to " + x + " and " + y);
         }
     }
 
@@ -320,6 +323,8 @@ var MemoryGame = function(size, cardsPerRow) {
                     winElement = this.createHighScore(); console.log("WIN!");
                 }
             }
+        } else if (document.getElementById("shuffleGame").clicked == true) {
+            this.state = CONST.GAME_STATE_NO_TURNED_CARD;
         }
     }
 }
