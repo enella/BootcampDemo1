@@ -309,6 +309,10 @@ var MemoryGame = function(size, cardsPerRow) {
                     that.state = CONST.GAME_STATE_NO_TURNED_CARD;
                 }, CONST.TURN_INVISIBLE_DELAY);
                 this.setProgress();
+                if (document.getElementById("shuffleGame").clicked == true) {
+                    //this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
+                    this.setCardState(CONST.GAME_STATE_NO_TURNED_CARD); console.log("Shuffle painettu"); 
+                }
             } else {
                 setTimeout(function(){ // funktio kääntämään kortit piiloon
                     that.cards[that.firtscard].turnInVisible();
