@@ -287,11 +287,11 @@ var MemoryGame = function(size, cardsPerRow) {
             this.setPlayTime();
         }
 
-        if (this.state == CONST.GAME_STATE_NO_TURNED_CARD){ // jos pelitila on 'ei käännettyjä kortteja'
+        if (this.state == CONST.GAME_STATE_NO_TURNED_CARD) { // jos pelitila on 'ei käännettyjä kortteja'
             this.cards[id].turnVisible();
             this.firtscard = id;
-            this.state = CONST.GAME_STATE_ONE_TURNED_CARD;
-            this.edis 
+            this.state = CONST.GAME_STATE_ONE_TURNED_CARD; 
+            this.edis; 
             this.setTurns();
         } else if (this.state == CONST.GAME_STATE_ONE_TURNED_CARD) { // jos pelitila on 'kortteja käännetty'
             if (id == this.firtscard)   return;
