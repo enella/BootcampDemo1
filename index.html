@@ -82,11 +82,9 @@
 
             element.addEventListener("click", () => {
                 var memoryGame = new MemoryGame(CONST.BOARD_SIZE, CONST.CARDS_PER_ROW, CONST.CARD_INVISIBLE); // huom.  memoryGamen etumerkki!
-                var playTimeElement = document.getElementById("play-time");
-                var turnElement = document.getElementById("turn-count");
-                var progressBar = document.getElementById("progress-bar");
-                var highScoreElement = document.getElementById("player-score");
-                memoryGame.playTime = 0;
+                
+                memoryGame.initialize();
+                memoryGame.setPlayTime(); 
 
                 memoryGame.initialize();
 
