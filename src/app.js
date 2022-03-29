@@ -208,7 +208,7 @@ var MemoryGame = function(size, cardsPerRow) {
     }
 
     this.createDivs = function() { // luodaan divit korteille 
-        var i, j;
+        var i, rivi = 0;
         var cardId = 0; // alustetaan korttien id nollaksi
 
         var rowElement;
@@ -218,6 +218,7 @@ var MemoryGame = function(size, cardsPerRow) {
 
         for (i = 0; i < this.nbrOfCards/this.cardsPerRow; i++) { // for-luuppit luomaan korteille "paikat"
             rowElement = this.createRow(i); // rivit
+            rivi++;
             for (j = 0; j < this.cardsPerRow; j++) { // kortit
                 cardId = (j + (i * this.cardsPerRow)); // identifioidaan kortit
                 cardElement = this.createCard(cardId);

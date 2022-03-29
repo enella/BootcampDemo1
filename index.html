@@ -83,13 +83,13 @@
             element.addEventListener("click", () => {
                 //document.getElementById("row-0").innerHTML = "";
                 //var memoryGame = new MemoryGame(CONST.BOARD_SIZE, CONST.CARDS_PER_ROW, CONST.CARD_INVISIBLE); // huom.  memoryGamen etumerkki!
-                memoryGame.createDivs();
-                memoryGame.setPlayTime(); 
+                
+                for (var i = 0; i=rivi; i++) {
+                    const element = document.getElementById('row-' + i);
+                    element.remove();
+                }
 
-                /*setInterval(function() {
-                    memoryGame.setPlayTime(); 
-                    playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
-                }, 1000); console.log("Shuffle painettu"); */
+                memoryGame.initialize();
             });
         </script>
 </body>
