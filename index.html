@@ -83,9 +83,9 @@
             element.addEventListener("click", () => {
                 //document.getElementById("row-0").innerHTML = "";
                 //var memoryGame = new MemoryGame(CONST.BOARD_SIZE, CONST.CARDS_PER_ROW, CONST.CARD_INVISIBLE); // huom.  memoryGamen etumerkki!
-                
+                var j = 0;
                 for (var i = 0; i=memoryGame.rivi; i++) {
-                    const element = document.getElementById('row-' + i);
+                    const element = document.getElementById('row-' + j); console.log("rivi-" + j + " poistettu");
                     element.remove();
                 }
 
