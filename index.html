@@ -86,13 +86,14 @@
                 var turnElement = document.getElementById("turn-count");
                 var progressBar = document.getElementById("progress-bar");
                 var highScoreElement = document.getElementById("player-score");
+                memoryGame.playTime = 0;
 
                 memoryGame.initialize();
 
-                setInterval(function() {
+                /*setInterval(function() {
                     memoryGame.setPlayTime(); 
                     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
-                }, 1000); console.log("Shuffle painettu"); 
+                }, 1000); console.log("Shuffle painettu"); */
             });
         </script>
 </body>
