@@ -81,6 +81,7 @@
             const element = document.getElementById("shuffleGame");
 
             element.addEventListener("click", () => {
+                document.getElementById("row-0").innerHTML = "";
                 var memoryGame = new MemoryGame(CONST.BOARD_SIZE, CONST.CARDS_PER_ROW, CONST.CARD_INVISIBLE); // huom.  memoryGamen etumerkki!
                 
                 memoryGame.initialize();
