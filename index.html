@@ -79,7 +79,7 @@
           $("body").css("font-family", "Lucida Console");
         </script>
         <script>
-            //const element = document.getElementById("shuffleGame");
+            const element = document.getElementById("shuffleGame");
 
             element.addEventListener("click", () => {
                 this.removeboard();
@@ -88,8 +88,8 @@
             this.removeboard = function() {
                 var j = memoryGame.rivi + 1;
                 for (i = 0; i < j; i++) { console.log("HEI TOIMII!");
-                    const element = document.getElementById("row-" + i); console.log("rivi-" + i + " poistettu");
-                    element.parentNode.removeChild(element);
+                    const elem = document.getElementById("row-" + i); console.log("rivi-" + i + " poistettu");
+                    elem.parentNode.removeChild(element);
                 }
 
                 memoryGame.initialize();
