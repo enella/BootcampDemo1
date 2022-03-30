@@ -87,7 +87,7 @@
 
             this.removeboard = function() {
                 var j = memoryGame.rivi + 1;
-                for (var i = 0; i < j; i++) {
+                for (var i = 0; i < j; i++) { console.log("HEI TOIMII!");
                     const element = document.getElementById("row-" + i); console.log("rivi-" + i + " poistettu");
                     element.parentNode.removeChild(element);
                 }
