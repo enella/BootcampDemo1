@@ -206,7 +206,15 @@ var MemoryGame = function(size, cardsPerRow) {
 
         x++;y++;
     }
+    this.removeboard = function() {
+        var j = memoryGame.rivi + 1; console.log(j);
+        for (i = 0; i < j; i++) { console.log("HEI TOIMII!");
+            const elem = document.getElementById("row-" + i); console.log("rivi-" + i + " poistettu");
+            elem.parentNode.removeChild(element);
+        }
 
+        memoryGame.initialize();
+    }
     this.createDivs = function() { // luodaan divit korteille 
         var i, rivi = 0;
         var cardId = 0; // alustetaan korttien id nollaksi
