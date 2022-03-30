@@ -231,6 +231,7 @@ var MemoryGame = function(size, cardsPerRow) {
             }
             document.getElementById("game-content").appendChild(rowElement); // luodaan kortit tietyn elementin sisään
         }
+        return rivi;
     } 
  /* PELIAIKA, PELIVUOROT JA EDISTYMINEN ------------------------------------------------------------------------------------ */
     this.setPlayTime = function() { 
