@@ -6,8 +6,7 @@ const mysql = require('express');
 const db = mysql.createConnection({
     host : 'localhost',
     user: 'root',
-    password: '',
-    database: 'MemorySQL'
+    password: ''
 });
 
 // yhdistä
