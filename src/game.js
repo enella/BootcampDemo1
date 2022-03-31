@@ -206,9 +206,17 @@ var MemoryGame = function(size, cardsPerRow) {
 
         x++;y++;
     }
+    this.removeBoard = function() {
+        var j = this.rivi + 1; console.log(j);
+        for (i = 0; i < j; i++) { console.log("HEI TOIMII!");
+            const elem = document.getElementById("row-" + i); console.log("rivi-" + i + " poistettu");
+            elem.parentNode.removeChild(element);
+        }
 
+        memoryGame.initialize();
+    }
     this.createDivs = function() { // luodaan divit korteille 
-        var i, j;
+        var i, rivi = 0;
         var cardId = 0; // alustetaan korttien id nollaksi
 
         var rowElement;
@@ -218,6 +226,7 @@ var MemoryGame = function(size, cardsPerRow) {
 
         for (i = 0; i < this.nbrOfCards/this.cardsPerRow; i++) { // for-luuppit luomaan korteille "paikat"
             rowElement = this.createRow(i); // rivit
+            rivi++;
             for (j = 0; j < this.cardsPerRow; j++) { // kortit
                 cardId = (j + (i * this.cardsPerRow)); // identifioidaan kortit
                 cardElement = this.createCard(cardId);
@@ -230,6 +239,7 @@ var MemoryGame = function(size, cardsPerRow) {
             }
             document.getElementById("game-content").appendChild(rowElement); // luodaan kortit tietyn elementin sisään
         }
+        return rivi;
     } 
  /* PELIAIKA, PELIVUOROT JA EDISTYMINEN ------------------------------------------------------------------------------------ */
     this.setPlayTime = function() { 
@@ -287,11 +297,11 @@ var MemoryGame = function(size, cardsPerRow) {
             this.setPlayTime();
         }
 
-        if (this.state == CONST.GAME_STATE_NO_TURNED_CARD) { // jos pelitila on 'ei käännettyjä kortteja'
+        if (this.state == CONST.GAME_STATE_NO_TURNED_CARD){ // jos pelitila on 'ei käännettyjä kortteja'
             this.cards[id].turnVisible();
             this.firtscard = id;
-            this.state = CONST.GAME_STATE_ONE_TURNED_CARD; 
-            this.edis; 
+            this.state = CONST.GAME_STATE_ONE_TURNED_CARD;
+            this.edis 
             this.setTurns();
         } else if (this.state == CONST.GAME_STATE_ONE_TURNED_CARD) { // jos pelitila on 'kortteja käännetty'
             if (id == this.firtscard)   return;
@@ -309,6 +319,10 @@ var MemoryGame = function(size, cardsPerRow) {
                     that.state = CONST.GAME_STATE_NO_TURNED_CARD;
                 }, CONST.TURN_INVISIBLE_DELAY);
                 this.setProgress();
+                if (document.getElementById("shuffleGame").clicked == true) {
+                    //this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
+                    this.setCardState(CONST.GAME_STATE_NO_TURNED_CARD); console.log("Shuffle painettu"); 
+                }
             } else {
                 setTimeout(function(){ // funktio kääntämään kortit piiloon
                     that.cards[that.firtscard].turnInVisible();
@@ -317,17 +331,13 @@ var MemoryGame = function(size, cardsPerRow) {
                 }, CONST.TURN_INVISIBLE_DELAY);
             }
 
-            if (document.getElementById("shuffleGame").clicked == true) {
-                this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
-            }
-
             if (this.progress == 100) { // kun kaikki parit on käytetty tai siis progress-bar on 100%:a
                 this.state = CONST.GAME_STATE_WIN;
                 if (this.state == CONST.GAME_STATE_WIN) {
                     winElement = this.createHighScore(); console.log("WIN!");
                 }
             }
-        } 
+        }
     }
 }
 
@@ -343,3 +353,8 @@ setInterval(function() {
     memoryGame.setPlayTime(); 
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
+
+if (document.getElementById("shuffleGame").clicked == true) {
+    //this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
+    this.setCardState(CONST.GAME_STATE_NO_TURNED_CARD); console.log("Shuffle painettu"); 
+}
