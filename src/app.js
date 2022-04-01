@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // vähän niinkuin asetukset
@@ -358,3 +359,5 @@ if (document.getElementById("shuffleGame").clicked == true) {
     //this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
     this.setCardState(CONST.GAME_STATE_NO_TURNED_CARD); console.log("Shuffle painettu"); 
 }
+=======
+>>>>>>> master
