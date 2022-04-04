@@ -356,4 +356,10 @@ setInterval(function() {
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
 
-module.exports(this.Player);
+define(function (require, exports, module) {
+
+    module.exports = {
+      Player: require("./Player")
+    };
+  
+  });
