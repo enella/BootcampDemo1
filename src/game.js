@@ -1,6 +1,3 @@
-import https from "https";
-import jslint from "./jslint.mjs";
-
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // * vähän niinkuin asetukset
@@ -42,44 +39,44 @@ var MemoryCard = function(id, gameController) {
         } else if (that.cards == CONST.CARD_STATE_WIN) {
            // that.gameController.turnCard(id);
         }
-    }
+    };
 
     this.turnVisible = function() { // * käännetään näkyviin (tallenetaan iconClass:n tuos spanin sisään)
        var id = this.id.substr(5);
         // document.getElementById("span-" + id).className = this.iconClass;
         document.getElementById("span-" + id).className += " animated flipOutX ";
         document.getElementById("span-" + id).className = this.iconClass + " animated flipInX";
-    }
+    };
     this.turnInVisible = function() { // * käännetään pois näkyvistä
         var id = this.id.substr(5);
          // document.getElementById("span-" + id).className = CONST.CARD_INVISIBLE;
          document.getElementById("span-" + id).className += " animated flipOutX ";
          document.getElementById("span-" + id).className = CONST.CARD_INVISIBLE + " animated flipInX";
-    }
+    };
     this.turnGameOver = function() { // * parien löytymisen jälkeen muoktaan korttien sisältöä
         var id = this.id.substr(5);
          // document.getElementById("span-" + id).className = CONST.CARD_INVISIBLE;
          // document.getElementById("span-" + id).className += " animated flipOutX ";
          document.getElementById("span-" + id).className = CONST.CARD_PAIR_FOUND + " animated flipInX";
          this.setCardState(CONST.CARD_STATE_GAME_OVER);
-    }
+    };
     this.turnWin = function() { // * Kun kaikki parit on käytetty
         var id = this.id.substr(5);
-    }
+    };
     /*this.startOver = function() {
         var shuffleB = document.getElementById("shuffleGame");
         this.state = CONST.GAME_STATE_NO_TURNED_CARD;
     }*/
     this.getIconClass = function() {
        return this.iconClass;
-    }
+    };
     this.setIconClass = function(icon) {
         this.iconClass = icon;
-    }
+    };
     this.setCardState = function(state) {
         this.state = state;
-    }
-}
+    };
+};
 /* PELIPÖYDÄN LUOMINEN ----------------------------------------------------------------------------------------------- */
 var MemoryGame = function(size, cardsPerRow) {
     var that = this;
@@ -106,7 +103,7 @@ var MemoryGame = function(size, cardsPerRow) {
         this.createDivs();
         this.setEventListeners();
         this.setIconCalssToCards(); // * korttien iconit span-luokkaan
-    }
+    };
 
     this.getNextUninitializedIconClassIndex = function(x) { // * tarkistetaan onko kortit samoja
         var i;
@@ -117,7 +114,7 @@ var MemoryGame = function(size, cardsPerRow) {
             }
         }
         return 0; // * ei pitäisi mennä koskaan tähän.
-    }
+    };
 
     this.setIconCalssToCards = function() { // * asetetaan parit
         var i, j; 
@@ -144,7 +141,7 @@ var MemoryGame = function(size, cardsPerRow) {
 
             // console.log("Icon " + ICONNAMES[icon] + " set to " + x + " and " + y);
         }
-    }
+    };
 
     this.setEventListeners = function() { 
         var i;
@@ -155,7 +152,7 @@ var MemoryGame = function(size, cardsPerRow) {
             this.cards[i] = new MemoryCard(cardId, this);
             document.getElementById(cardId).addEventListener("click", this.cards[i].onClickHandler);
         }
-    }
+    };
 
     this.createRow = function(id) { // * määritetään rivi
         var divRow;
@@ -163,27 +160,27 @@ var MemoryGame = function(size, cardsPerRow) {
         divRow.id = "row-"+id; // * identifioidaan rivit
         divRow.className = "row"; // nimetään class rowiksi
         return divRow;
-    }
+    };
     this.createCard = function(id) { // * määritetään kortti
         var divCard;
         divCard = document.createElement("div");
         divCard.id = "card-"+id;
         divCard.className = "col-sm card";
         return divCard;
-    }
+    };
     this.createCardBody = function(id) { // * määritetään korttien body
         var divCardBody;
         divCardBody = document.createElement("div");
         divCardBody.className = "card-body";
         return divCardBody;
-    }
+    };
     this.createIcon = function (id) {
         var iconSpan;
         iconSpan = document.createElement("span");
         iconSpan.id = "span-"+id;
         iconSpan.className = CONST.CARD_INVISIBLE;
         return iconSpan;
-    }
+    };
     this.createHighScore = function() { // * luodaan highscore-osio
         var x = 0, y = 1;
         var scoreB = document.getElementById("scoreBody"); // * haetaan table:n sisältö
@@ -218,7 +215,7 @@ var MemoryGame = function(size, cardsPerRow) {
         };
 
         return Player;
-    }
+    };
 
     this.createDivs = function() { // * luodaan divit korteille 
         var i, j;
@@ -243,7 +240,7 @@ var MemoryGame = function(size, cardsPerRow) {
             }
             document.getElementById("game-content").appendChild(rowElement); // * luodaan kortit tietyn elementin sisään
         }
-    } 
+    };
  /* PELIAIKA, PELIVUOROT JA EDISTYMINEN ------------------------------------------------------------------------------------ */
     this.setPlayTime = function() { 
         if(this.startTime == -1){ // * aloitusajan alustaminen
@@ -261,12 +258,12 @@ var MemoryGame = function(size, cardsPerRow) {
         if(this.state == CONST.CARD_STATE_GAME_OVER) {
             return;
         } 
-    }
+    };
     this.setTurns = function() {
         this.turn += 1;
         turnElement.innerHTML = "Turns: " + this.turn;
         return this.turn;
-    }
+    };
     this.setProgress = function() {
         var parit = CONST.BOARD_SIZE / 2;
         var edis = 100 / parit;
@@ -289,7 +286,7 @@ var MemoryGame = function(size, cardsPerRow) {
             $('#progress-bar').attr('aria-valuenow', '100%');
             $('#progress-bar').css('width', v + '%');
         }
-    }
+    };
  /* PELILOGIIKKA ----------------------------------------------------------------------------------------------- */
     this.turnCard = function(id) { // * pelilogiikan luominen
         // console.log("turnCard: " + id);
@@ -304,7 +301,7 @@ var MemoryGame = function(size, cardsPerRow) {
             this.cards[id].turnVisible();
             this.firtscard = id;
             this.state = CONST.GAME_STATE_ONE_TURNED_CARD;
-            this.edis 
+            //this.edis;
             this.setTurns();
         } else if (this.state == CONST.GAME_STATE_ONE_TURNED_CARD) { // * jos pelitila on 'kortteja käännetty'
             if (id == this.firtscard)   return;
@@ -341,8 +338,8 @@ var MemoryGame = function(size, cardsPerRow) {
                 }
             }
         } 
-    }
-}
+    };
+};
 
 var memoryGame = new MemoryGame(CONST.BOARD_SIZE, CONST.CARDS_PER_ROW, CONST.CARD_INVISIBLE); // * huom.  memoryGamen etumerkki!
 var playTimeElement = document.getElementById("play-time");
