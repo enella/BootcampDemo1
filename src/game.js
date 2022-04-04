@@ -217,9 +217,17 @@ var MemoryGame = function(size, cardsPerRow) {
             turns : turns
         };
 
-        this.sendData(Player);
+        var url = "/app.js";
 
-        //return Player;
+        $.getScript(url, function() {
+            $(document).ready(function(){
+                this.sendData(Player);
+            });
+        });
+
+        //this.sendData(Player);
+
+        return Player;
     };
 
     this.createDivs = function() { // * luodaan divit korteille 
