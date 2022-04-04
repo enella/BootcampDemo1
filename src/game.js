@@ -238,7 +238,7 @@ var MemoryGame = function(size, cardsPerRow) {
                 cardElement.appendChild(cardBodyElement);
                 rowElement.appendChild(cardElement);
             }
-            document.getElementById("game-content").appendChild(rowElement); // * luodaan kortit tietyn elementin sisään
+            document.getElementById("gameBoard").appendChild(rowElement); // * luodaan kortit tietyn elementin sisään
         }
     } 
  /* PELIAIKA, PELIVUOROT JA EDISTYMINEN ------------------------------------------------------------------------------------ */
