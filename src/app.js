@@ -22,10 +22,10 @@ db.connect(err => {
 //app.use("/static", express.static('./static/'));
 //app.use(express.static('public'));
 
-var id = Player.id;
-var name = Player.name;
-var time = Player.time;
-var turns = Player.turns;
+var id = newPlayer.id;
+var name = newPlayer.name;
+var time = newPlayer.time;
+var turns = newPlayer.turns;
 
 var port;
 if (process.env.PORT != undefined) {
