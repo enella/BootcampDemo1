@@ -189,6 +189,8 @@ var MemoryGame = function(size, cardsPerRow) {
         var nickName = row.insertCell(1);
         var time = row.insertCell(2);
         var turns = row.insertCell(3);
+        var playerid = Math.floor(Math.random()*(999-100+1)+100); // * arvotaan pelaaja id SQL:lle jolla random 3 numeroinen luku
+        var nimi = "Anonymous";
         
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
@@ -196,14 +198,23 @@ var MemoryGame = function(size, cardsPerRow) {
         var name = document.getElementById("username").value;
         place.innerHTML = y;
         if (name == "") {
-            nickName.innerHTML = "Anonymous"; 
+            nickName.innerHTML = nimi; name = nimi;
         } else {
             nickName.innerHTML = name; 
         }
-        time.innerHTML = this.playTime/1000;
+        time.innerHTML = this.playTime/1000; var aika = this.playtime/1000;
         turns.innerHTML = this.turn;
 
         x++;y++;
+
+        var Player = {
+            id : playerid,
+            name : name,
+            time : aika,
+            turns : turns
+        };
+
+        return Player;
     }
 
     this.createDivs = function() { // * luodaan divit korteille 
