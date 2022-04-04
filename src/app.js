@@ -1,8 +1,9 @@
 /* jshint esversion: 6 */
-import Player from "/game.js";
+//import Player from "/game.js";
 
 const express = require('express');
 const mysql = require('mysql'); 
+var newPlayer = require('Player');
 
 const app = express();
 
@@ -21,7 +22,6 @@ db.connect(err => {
 app.use("/static", express.static('./static/'));
 //app.use(express.static('public'));
 
-this.sendData = function() {
     var id = Player.id;
     var name = Player.name;
     var time = Player.time;
@@ -37,9 +37,6 @@ this.sendData = function() {
             console.log("Data send!");
         });
     });
-};
-
-export { sendData };
 
 var port;
 if (process.env.PORT != undefined) {
