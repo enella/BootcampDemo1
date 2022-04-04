@@ -13,10 +13,10 @@ const db = mysql.createConnection({
     database: "memorygame"
 });
 
-/*db.connect(err => {
+db.connect(err => {
     if (err) throw err;
     console.log("Connected!");
-});*/
+});
 
 app.use("/static", express.static('./static/'));
 app.use(express.static('public'));
