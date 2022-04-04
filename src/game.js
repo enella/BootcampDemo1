@@ -1,3 +1,6 @@
+import https from "https";
+import jslint from "./jslint.mjs";
+
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // * vähän niinkuin asetukset
