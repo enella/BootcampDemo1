@@ -1,8 +1,9 @@
 /* jshint esversion: 6 */
 // import Player from "./game.js";
 
-const express = require('express');
-const mysql = require('mysql'); 
+import express from "express";
+import mysql from "mysql";
+
 var id = localStorage.getItem("testJSON");
 var name = localStorage.getItem("testJSON2");
 var time = localStorage.getItem("testJSON3");
