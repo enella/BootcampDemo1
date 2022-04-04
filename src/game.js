@@ -327,9 +327,9 @@ var MemoryGame = function(size, cardsPerRow) {
                 }, CONST.TURN_INVISIBLE_DELAY);
             }
 
-            if (document.getElementById("shuffleGame").clicked == true) {
+            /*if (document.getElementById("shuffleGame").clicked == true) {
                 this.state = CONST.GAME_STATE_NO_TURNED_CARD; console.log("Shuffle painettu");
-            }
+            }*/
 
             if (this.progress == 100) { // * kun kaikki parit on käytetty tai siis progress-bar on 100%:a
                 this.state = CONST.GAME_STATE_WIN;
