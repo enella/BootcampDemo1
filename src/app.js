@@ -1,9 +1,9 @@
 /* jshint esversion: 6 */
-//import Player from "/game.js";
+import Player from "/game.js";
 
 const express = require('express');
 const mysql = require('mysql'); 
-var newPlayer = require('/src/game.js').Player;
+var newPlayer = Player;
 
 const app = express();
 
