@@ -216,7 +216,7 @@ var MemoryGame = function(size, cardsPerRow) {
             time : aika,
             turns : turns
         };
-        module.exports = Player;
+        return Player;
     };
 
     this.createDivs = function() { // * luodaan divit korteille 
