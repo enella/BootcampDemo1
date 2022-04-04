@@ -7,9 +7,8 @@
   "type": "module",
   "name": "bootcampdemo",
   "version": "1.0.0",
-  "main": "index.html",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",

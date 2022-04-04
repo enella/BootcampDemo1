@@ -358,4 +358,4 @@ setInterval(function() {
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
 
-// ! "test": "echo \"Error: no test specified\" && exit 1"
+// ! "test": "echo \"Error: no test specified\" && exit 1" || "main": "index.html",
