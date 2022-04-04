@@ -193,7 +193,8 @@ var MemoryGame = function(size, cardsPerRow) {
         var time = row.insertCell(2);
         var turns = row.insertCell(3);
         var playerid = Math.floor(Math.random()*(999-100+1)+100); // * arvotaan pelaaja id SQL:lle jolla random 3 numeroinen luku
-        var nimi = "Anonymous";
+        var ano = "Anonymous";
+        var nimi, move; 
         
         //score.HTMLTableElement.appendChild(document.createElement('tbody'));
         //score.setAttribute("id", "player-score" + x);
@@ -201,23 +202,23 @@ var MemoryGame = function(size, cardsPerRow) {
         var name = document.getElementById("username").value;
         place.innerHTML = y;
         if (name == "") {
-            nickName.innerHTML = nimi; name = nimi;
+            nickName.innerHTML = ano; nimi = ano;
         } else {
-            nickName.innerHTML = name; 
+            nickName.innerHTML = name; nimi = name;
         }
         time.innerHTML = this.playTime/1000; var aika = this.playtime/1000;
-        turns.innerHTML = this.turn;
+        turns.innerHTML = this.turn; move = this.turn;
 
         x++;y++;
 
-        var Player = {
-            id : playerid,
-            name : name,
-            time : aika,
-            turns : turns
-        };
-        var json = JSON.stringify(Player);
-        localStorage.setItem("testJSON", json);
+        var pjson = JSON.stringify(playerid);
+        localStorage.setItem("testJSON", pjson);
+        var njson = JSON.stringify(nimi);
+        localStorage.setItem("testJSON2", njson);
+        var tjson = JSON.stringify(aika);
+        localStorage.setItem("testJSON3", tjson);
+        var mjson = JSON.stringify(move);
+        localStorage.setItem("testJSON4", mjson);
     };
 
     this.createDivs = function() { // * luodaan divit korteille 

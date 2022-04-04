@@ -3,8 +3,14 @@ import Player from "./game.js";
 
 const express = require('express');
 const mysql = require('mysql'); 
-var text = localStorage.getItem("testJSON");
-var newPlayer = JSON.parse(text);
+var id = localStorage.getItem("testJSON");
+var name = localStorage.getItem("testJSON2");
+var time = localStorage.getItem("testJSON3");
+var turns = localStorage.getItem("testJSON4");
+var newId = JSON.parse(id);
+var newName = JSON.parse(name);
+var newTime = JSON.parse(time);
+var newTurns = JSON.parse(turns);
 
 const app = express();
 
@@ -22,11 +28,6 @@ db.connect(err => {
 
 //app.use("/static", express.static('./static/'));
 //app.use(express.static('public'));
-
-var id = newPlayer.id;
-var name = newPlayer.name;
-var time = newPlayer.time;
-var turns = newPlayer.turns;
 
 var port;
 if (process.env.PORT != undefined) {
@@ -47,7 +48,7 @@ app.post("/player_table", function(req, res) {
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + id + "', '" + name + "', '" + time + "', '" + turns + "')";
+    var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + newId + "', '" + newName + "', '" + newTime + "', '" + newTurns + "')";
     db.query(sql, function(err, result) {
         if (err) throw err;
         console.log("Data send!");
