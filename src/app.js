@@ -39,7 +39,7 @@ this.sendData = function() {
     });
 };
 
-var port;
+/*var port;
 if (process.env.PORT != undefined) {
     port = procress.env.PORT;
 } else {
@@ -48,4 +48,4 @@ if (process.env.PORT != undefined) {
 
 app.listen(port, function() {
     console.log("App listening on port " + port);
-});
+});*/
