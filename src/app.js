@@ -3,7 +3,8 @@ import Player from "./game.js";
 
 const express = require('express');
 const mysql = require('mysql'); 
-var newPlayer = Player;
+var text = localStorage.getItem("testJSON");
+var newPlayer = JSON.parse(text);
 
 const app = express();
 

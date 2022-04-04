@@ -216,7 +216,8 @@ var MemoryGame = function(size, cardsPerRow) {
             time : aika,
             turns : turns
         };
-        return Player;
+        var json = JSON.stringify(Player);
+        localStorage.setItem("testJSON", json);
     };
 
     this.createDivs = function() { // * luodaan divit korteille 
@@ -355,11 +356,3 @@ setInterval(function() {
     memoryGame.setPlayTime(); 
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
-
-define(function (require, exports, module) {
-
-    module.exports = {
-      Player: require("./Player")
-    };
-  
-  });
