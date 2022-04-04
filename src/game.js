@@ -301,7 +301,7 @@ var MemoryGame = function(size, cardsPerRow) {
             this.cards[id].turnVisible();
             this.firtscard = id;
             this.state = CONST.GAME_STATE_ONE_TURNED_CARD;
-            //this.edis;
+            //this.edis 
             this.setTurns();
         } else if (this.state == CONST.GAME_STATE_ONE_TURNED_CARD) { // * jos pelitila on 'kortteja käännetty'
             if (id == this.firtscard)   return;
@@ -353,7 +353,3 @@ setInterval(function() {
     memoryGame.setPlayTime(); 
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
-
-define (function (require, exports, module) {
-    module.exports = Player;
-});
