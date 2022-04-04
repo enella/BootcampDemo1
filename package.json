@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "mysql": "^2.18.1"
-  }
+  },
+  "name": "bootcampdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enella/BootcampDemo1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enella/BootcampDemo1/issues"
+  },
+  "homepage": "https://github.com/enella/BootcampDemo1#readme",
+  "description": ""
 }
