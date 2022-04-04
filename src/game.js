@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+import {sendData} from "app.js";
+
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // * vähän niinkuin asetukset
