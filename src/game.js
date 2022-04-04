@@ -356,10 +356,4 @@ setInterval(function() {
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
 
-/*var url = "/app.js";
-
-        $.getScript(url, function() {
-            $(document).ready(function(){
-                this.sendData(Player); console.log(this.sendData(Player));
-            });
-        });*/
+module.exports = this.Player;
