@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+import {sendData} from "/app.js";
+
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // * vähän niinkuin asetukset
@@ -213,8 +216,7 @@ var MemoryGame = function(size, cardsPerRow) {
             time : aika,
             turns : turns
         };
-
-        return Player;
+        module.exports = Player;
     };
 
     this.createDivs = function() { // * luodaan divit korteille 
@@ -353,3 +355,11 @@ setInterval(function() {
     memoryGame.setPlayTime(); 
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
+
+/*var url = "/app.js";
+
+        $.getScript(url, function() {
+            $(document).ready(function(){
+                this.sendData(Player); console.log(this.sendData(Player));
+            });
+        });*/

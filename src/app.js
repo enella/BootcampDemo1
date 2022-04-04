@@ -1,6 +1,10 @@
 /* jshint esversion: 6 */
+//import Player from "/game.js";
+
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql'); 
+var newPlayer = require('/src/game.js').Player;
+
 const app = express();
 
 const db = mysql.createConnection({
@@ -15,7 +19,13 @@ db.connect(err => {
     console.log("Connected!");
 });
 
-app.use(express.static('public'));
+//app.use("/static", express.static('./static/'));
+//app.use(express.static('public'));
+
+var id = newPlayer.id;
+var name = newPlayer.name;
+var time = newPlayer.time;
+var turns = newPlayer.turns;
 
 var port;
 if (process.env.PORT != undefined) {
@@ -28,17 +38,17 @@ app.listen(port, function() {
     console.log("App listening on port " + port);
 });
 
-var id = Player.id;
-var name = Player.name;
-var time = Player.time;
-var turns = Player.turns;
+app.get("/player_table", function(request, response) {
+    console.log('polkua /player_table kutsuttiin');
+});
 
-app.get("/player_table", (req, res) => {
-    let post = { id, name, time, turns };
-    let sql = "INSERT INTO player_table SET ?";
-  
-    let query = db.query(sql, post, (err) => {
+app.post("/player_table", function(req, res) {
+    if (err) throw err;
+    console.log("Connected!");
+
+    var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + id + "', '" + name + "', '" + time + "', '" + turns + "')";
+    db.query(sql, function(err, result) {
         if (err) throw err;
-        res.send("Player added");
+        console.log("Data send!");
     });
 });
