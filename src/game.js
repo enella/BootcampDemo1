@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-import {sendData} from "/app.js";
+//import {sendData} from "/app.js";
 
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
