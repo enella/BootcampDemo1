@@ -2,7 +2,7 @@
 import Player from "/game.js";
 
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql'); // "start": "node app.js",
 
 const app = express();
 
