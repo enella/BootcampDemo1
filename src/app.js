@@ -17,12 +17,12 @@ app.use('/login',loginRouter);
 app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ));
 app.use('/book',bookRouter);
 
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
     database: "memorygame"
-});
+});*/
 
 db.connect(err => {
     if (err) throw err;
