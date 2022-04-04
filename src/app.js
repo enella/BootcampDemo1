@@ -1,7 +1,21 @@
 /* jshint esversion: 6 */
 const express = require('express');
-const mysql = require('mysql');
+const dotenv=require('dotenv');
+const cors=require('cors');
+const bookRouter=require('./routes/book.js');
+const exampleRouter=require('./routes/example');
+const basicAuth = require('express-basic-auth');
+const loginRouter=require('./routes/login');
+
 const app = express();
+
+app.use(cors());
+dotenv.config();
+app.use(express.urlencoded({extended:false}));
+app.use('/example',exampleRouter);
+app.use('/login',loginRouter);
+app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ));
+app.use('/book',bookRouter);
 
 const db = mysql.createConnection({
     host: "localhost",
