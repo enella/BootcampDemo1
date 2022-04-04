@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const app = express();
 
 const db = mysql.createConnection({
-    host: "127.0.0.1",
+    host: "localhost",
     user: "root",
     password: "",
     database: "memorygame"
@@ -19,7 +19,7 @@ db.connect(err => {
 });
 
 app.use("/static", express.static('./static/'));
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 this.sendData = function() {
     var id = Player.id;
