@@ -3,7 +3,7 @@
 
 const express = require('express');
 const mysql = require('mysql'); 
-var newPlayer = require('game.js').Player;
+var newPlayer = require('src/game.js').Player;
 
 const app = express();
 
@@ -36,6 +36,10 @@ if (process.env.PORT != undefined) {
 
 app.listen(port, function() {
     console.log("App listening on port " + port);
+});
+
+app.get("/player_table", function(request, response) {
+    console.log('polkua /player_table kutsuttiin');
 });
 
 app.post("/player_table", function(req, res) {
