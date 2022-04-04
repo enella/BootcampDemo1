@@ -1,6 +1,5 @@
 /* jshint esversion: 6 */
 const express = require('express');
-const dotenv=require('dotenv');
 const cors=require('cors');
 const bookRouter=require('./routes/book.js');
 const exampleRouter=require('./routes/example');
