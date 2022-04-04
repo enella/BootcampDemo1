@@ -358,3 +358,21 @@ setInterval(function() {
     memoryGame.setPlayTime(); 
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
+
+this.sendData = function() {
+    var id = Player.id;
+    var name = Player.name;
+    var time = Player.time;
+    var turns = Player.turns;
+
+    app.post("/player_table", function(req, res) {
+        if (err) throw err;
+        console.log("Connected!");
+
+        var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + id + "', '" + name + "', '" + time + "', '" + turns + "')";
+        db.query(sql, function(err, result) {
+            if (err) throw err;
+            console.log("Data send!");
+        });
+    });
+};
