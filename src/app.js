@@ -3,7 +3,7 @@
 
 const express = require('express');
 const mysql = require('mysql'); 
-var newPlayer = require('src/game.js').Player;
+//var newPlayer = require('src/game.js').Player;
 
 const app = express();
 
