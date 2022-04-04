@@ -4,6 +4,7 @@
     "jshint": "^2.13.4",
     "mysql": "^2.18.1"
   },
+  "type": "module",
   "name": "bootcampdemo",
   "version": "1.0.0",
   "main": "index.html",
