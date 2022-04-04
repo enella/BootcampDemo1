@@ -16,6 +16,7 @@ const db = mysql.createConnection({
     console.log("Connected!");
 });*/
 
+app.use("/static", express.static('./static/'));
 app.use(express.static('public'));
 
 this.sendData = function() {
