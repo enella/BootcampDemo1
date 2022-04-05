@@ -209,6 +209,11 @@ var MemoryGame = function(size, cardsPerRow) {
         time.innerHTML = this.playTime/1000; var aika = this.playtime/1000;
         turns.innerHTML = this.turn; move = this.turn;
 
+        console.log(playerid);
+        console.log(nimi);
+        console.log(aika);
+        console.log(move);
+
         x++;y++;
 
         var pjson = JSON.stringify(playerid);
