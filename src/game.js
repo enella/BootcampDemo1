@@ -206,7 +206,6 @@ var MemoryGame = function(size, cardsPerRow) {
         } else {
             nickName.innerHTML = name; nimi = name;
         }
-        //var aika = this.playTime; // Math.round(aika);
         time.innerHTML = this.playTime/1000;
         turns.innerHTML = this.turn; move = this.turn;
 
@@ -364,4 +363,4 @@ setInterval(function() {
     playTimeElement.innerHTML = "Playtime: " + Math.floor(memoryGame.playTime / 1000) + " s";
 }, 1000);
 
-// ! "test": "echo \"Error: no test specified\" && exit 1" || "main": "index.html",
+// !  || "main": "index.html",

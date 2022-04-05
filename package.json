@@ -2,14 +2,16 @@
   "dependencies": {
     "express": "^4.17.3",
     "jshint": "^2.13.4",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "node": "^17.7.2"
   },
   "type": "module",
   "name": "bootcampdemo",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
