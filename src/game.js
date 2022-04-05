@@ -206,13 +206,13 @@ var MemoryGame = function(size, cardsPerRow) {
         } else {
             nickName.innerHTML = name; nimi = name;
         }
-        var aika = this.endTime; // Math.round(aika);
-        time.innerHTML = aika;
+        //var aika = this.playTime; // Math.round(aika);
+        time.innerHTML = this.playTime;
         turns.innerHTML = this.turn; move = this.turn;
 
         console.log(playerid);
         console.log(nimi);
-        console.log(aika);
+        console.log(this.playTime);
         console.log(move);
 
         x++;y++;
@@ -221,7 +221,7 @@ var MemoryGame = function(size, cardsPerRow) {
         localStorage.setItem("testJSON", pjson);
         var njson = JSON.stringify(nimi);
         localStorage.setItem("testJSON2", njson);
-        var tjson = JSON.stringify(aika);
+        var tjson = JSON.stringify(this.playTime);
         localStorage.setItem("testJSON3", tjson);
         var mjson = JSON.stringify(move);
         localStorage.setItem("testJSON4", mjson);
