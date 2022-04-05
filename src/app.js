@@ -52,7 +52,7 @@ var newId = "", newName = "", newTime = "", newTurns = "";
     newTime = JSON.parse(time);
     newTurns = JSON.parse(turns);
 
-app.post("/player_table", function(req, res) {
+app.post("/", function(req, res) {
     if (err) throw err;
     console.log("Connected!");
 
