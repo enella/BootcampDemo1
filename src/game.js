@@ -4,7 +4,7 @@
 // app.js
 /* ASETUKET ----------------------------------------------------------------------------------------------- */
 var CONST = { // * vähän niinkuin asetukset
-    BOARD_SIZE: 20,
+    BOARD_SIZE: 8,
     CARDS_PER_ROW: 4,
 
     CARD_INVISIBLE: "oi oi-aperture text-info",
