@@ -16,12 +16,6 @@ const db = mysql.createConnection({
 db.connect(err => {
     if (err) throw err;
     console.log("Connected!");
-
-    var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + newId + "', '" + newName + "', '" + newTime + "', '" + newTurns + "')";
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log("Data send!");
-    });
 });
 
 var port;
@@ -35,9 +29,9 @@ app.listen(port, function() {
     console.log("App listening on port " + port);
 });
 
-app.get("/player_table", function(request, response) {
+/*app.get("/player_table", function(request, response) {
     console.log('polkua /player_table kutsuttiin');
-});
+});*/
 
 var id = localStorage.getItem("testJSON");
 var name = localStorage.getItem("testJSON2");
@@ -58,7 +52,7 @@ var newId = "", newName = "", newTime = "", newTurns = "";
     newTime = JSON.parse(time);
     newTurns = JSON.parse(turns);
 
-/*app.post("/", function(req, res) {
+app.post("/data", function(req, res) {
     if (err) throw err;
     console.log("Connected!");
 
@@ -67,7 +61,7 @@ var newId = "", newName = "", newTime = "", newTurns = "";
         if (err) throw err;
         console.log("Data send!");
     });
-});*/
+});
 
 //app.use("/static", express.static('./static/'));
 //app.use(express.static('public'));
