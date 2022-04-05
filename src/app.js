@@ -16,6 +16,12 @@ const db = mysql.createConnection({
 db.connect(err => {
     if (err) throw err;
     console.log("Connected!");
+
+    var sql = "INSERT INTO 'player_table' ('player_id', 'name', 'playtime', 'moves') VALUES ('" + newId + "', '" + newName + "', '" + newTime + "', '" + newTurns + "')";
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        console.log("Data send!");
+    });
 });
 
 var port;
@@ -52,7 +58,7 @@ var newId = "", newName = "", newTime = "", newTurns = "";
     newTime = JSON.parse(time);
     newTurns = JSON.parse(turns);
 
-app.post("/", function(req, res) {
+/*app.post("/", function(req, res) {
     if (err) throw err;
     console.log("Connected!");
 
@@ -61,7 +67,7 @@ app.post("/", function(req, res) {
         if (err) throw err;
         console.log("Data send!");
     });
-});
+});*/
 
 //app.use("/static", express.static('./static/'));
 //app.use(express.static('public'));
