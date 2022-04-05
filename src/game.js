@@ -206,7 +206,8 @@ var MemoryGame = function(size, cardsPerRow) {
         } else {
             nickName.innerHTML = name; nimi = name;
         }
-        time.innerHTML = this.playTime/1000; var aika = this.playtime/1000;
+        var aika = this.playtime/1000; Math.round(aika);
+        time.innerHTML = aika;
         turns.innerHTML = this.turn; move = this.turn;
 
         console.log(playerid);
