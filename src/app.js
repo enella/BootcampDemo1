@@ -4,15 +4,6 @@
 import express from "express";
 import mysql from "mysql";
 
-var id = localStorage.getItem("testJSON");
-var name = localStorage.getItem("testJSON2");
-var time = localStorage.getItem("testJSON3");
-var turns = localStorage.getItem("testJSON4");
-var newId = JSON.parse(id);
-var newName = JSON.parse(name);
-var newTime = JSON.parse(time);
-var newTurns = JSON.parse(turns);
-
 const app = express();
 
 const db = mysql.createConnection({
@@ -26,9 +17,6 @@ db.connect(err => {
     if (err) throw err;
     console.log("Connected!");
 });
-
-//app.use("/static", express.static('./static/'));
-//app.use(express.static('public'));
 
 var port;
 if (process.env.PORT != undefined) {
@@ -45,6 +33,25 @@ app.get("/player_table", function(request, response) {
     console.log('polkua /player_table kutsuttiin');
 });
 
+var id = localStorage.getItem("testJSON");
+var name = localStorage.getItem("testJSON2");
+var time = localStorage.getItem("testJSON3");
+var turns = localStorage.getItem("testJSON4");
+
+var newId = "", newName = "", newTime = "", newTurns = "";
+
+    var targetP = new Proxy(newId, {
+        set: function (target, key, value) {
+            //console.log(`${key} set to ${value}`);
+            target[key] = value;
+            return true;
+        }
+      });
+    newId = JSON.parse(id);
+    newName = JSON.parse(name);
+    newTime = JSON.parse(time);
+    newTurns = JSON.parse(turns);
+
 app.post("/player_table", function(req, res) {
     if (err) throw err;
     console.log("Connected!");
@@ -55,3 +62,6 @@ app.post("/player_table", function(req, res) {
         console.log("Data send!");
     });
 });
+
+//app.use("/static", express.static('./static/'));
+//app.use(express.static('public'));
